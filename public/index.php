@@ -59,13 +59,6 @@ switch ($page) {
     case 'delete_supplier':
         $ctrl->deleteSupplier();
         break;
-    case 'add_supplier_phone':
-        $ctrl->addSupplierPhone();
-        break;
-    case 'delete_supplier_phone':
-        $ctrl->deleteSupplierPhone();
-        break;
-
     case 'orders':
         $ctrl->manageOrders();
         break;
