@@ -257,12 +257,6 @@ class dbcustomer{
     return $data;
     }
     
-    public function getProductById($product_id) {
-        $product_id = (int)$product_id;
-        $sql = "SELECT * FROM Products WHERE product_id = {$product_id}";
-        $kq = $this->db->query($sql);
-        return $kq->fetch_assoc();
-    }
 
     public function countProducts($type_id, $brands, $price_ranges) {        
         $type_id = (int)$type_id;
