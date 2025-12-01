@@ -1,0 +1,127 @@
+/* =========================================
+   Cấu trúc chung
+   ========================================= */
+.main-container {
+    background-color: #f0f4f8; /* Nền xám xanh nhạt dịu mắt */
+    padding: 30px 15px;
+    min-height: 80vh;
+    font-family: Arial, sans-serif;
+}
+
+.orders-container {
+    max-width: 800px;
+    margin: 0 auto; /* Căn giữa nội dung */
+}
+
+.orders-container h1 {
+    text-align: center;
+    color: rgb(81, 94, 240); /* Xanh đậm */
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* =========================================
+   Thẻ đơn hàng (Card)
+   ========================================= */
+.order-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Bóng mờ nhẹ */
+    margin-bottom: 20px;
+    border: 1px solid #e1e8ed;
+    overflow: hidden;
+}
+
+/* Phần đầu: Mã đơn, ngày, trạng thái */
+.order-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-id {
+    font-weight: bold;
+    color: #1976D2; /* Màu xanh chủ đạo */
+    font-size: 16px;
+}
+
+.order-date {
+    font-size: 13px;
+    color: #78909c;
+}
+
+.status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    /* Màu nền background đã được set inline trong HTML PHP */
+}
+
+/* Phần thân: Giá tiền */
+.order-body {
+    padding: 15px 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label {
+    color: #555;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f; /* Màu đỏ cho giá tiền để nổi bật (hoặc dùng #1565C0 nếu muốn full xanh) */
+}
+
+/* Phần chân: Nút bấm */
+.order-footer {
+    padding: 12px 20px;
+    background-color: #fcfcfc;
+    border-top: 1px solid #f1f1f1;
+    text-align: right; /* Đẩy nút sang phải */
+}
+
+.btn-detail {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #fff;
+    color: #2196F3;
+    border: 1px solid #2196F3;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-detail:hover {
+    background-color: #2196F3;
+    color: #ffffff;
+}
+
+/* =========================================
+   Trạng thái trống (Không có đơn hàng)
+   ========================================= */
+.empty {
+    text-align: center;
+    padding: 50px;
+    background: #fff;
+    border-radius: 8px;
+    color: #78909c;
+}

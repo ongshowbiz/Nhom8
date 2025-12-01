@@ -1,0 +1,26 @@
+/* ===== KHUNG SUBMENU TRƯỢT NGANG ===== */
+#sidebar .dropdown {
+  position: relative;
+}
+
+/* Khung submenu tổng */
+#sidebar .submenu-box  {
+  position: absolute;
+  top: 0;
+  left: 100%; /* nằm bên phải menu cha */
+  background-color: #f8faff;
+  border: 2px solid #497fc1;
+  border-radius: 10px;
+  padding: 10px 0;
+  width: 200px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+
+  /* Ẩn ban đầu */
+  opacity: 0;
+  transform: translateX(15px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 3000;
+}
+
+

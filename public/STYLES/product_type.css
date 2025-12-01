@@ -1,0 +1,106 @@
+
+        /* Override styles.css cho trang này */
+        .main-body-wrapper {
+            display: block !important;
+            margin: 20px auto !important;
+            padding: 20px !important;
+            max-width: 1400px !important;
+            gap: 0 !important;
+            width: 100% !important;
+        }
+        
+        .content-area {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        
+        .page-header h1 {
+            font-size: 2em;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .category-name {
+            font-size: 1em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .category-count {
+            font-size: 0.9em;
+            color: #999;
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 50px;
+            background: white;
+            border-radius: 10px;
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+            
+            .category-card {
+                padding: 20px 15px;
+            }
+            
+            .category-icon {
+                font-size: 2.5em;
+            }
+            
+            .category-name {
+                font-size: 0.9em;
+            }
+        }

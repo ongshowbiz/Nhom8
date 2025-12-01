@@ -1,0 +1,248 @@
+/* =================================
+   BỐ CỤC TRANG SHOP
+   ================================= */
+
+/* 1. Thiết lập vùng chứa chính */
+.shop-container {
+    display: flex; /* Sử dụng Flexbox để chia cột */
+    width: 90%;
+    max-width: 1400px;
+    margin: 20px auto; /* Căn giữa và tạo khoảng cách */
+    gap: 20px; /* Khoảng cách 20px giữa sidebar và main */
+    padding: 0 15px;
+}
+
+/* 2. Định dạng Sidebar (Cột lọc) */
+/* 2. Định dạng Sidebar (Cột lọc) - ĐÃ SỬA LỖI XUNG ĐỘT */
+.shop-sidebar {
+    
+    /* --- 1. RESET các thuộc tính sai từ styles.css --- */
+    position: static;    /* QUAN TRỌNG: Bỏ 'position: fixed' */
+    transform: none;     /* QUAN TRỌNG: Bỏ 'translateX(-100%)' */
+    z-index: auto;       /* QUAN TRỌNG: Bỏ 'z-index: 1500' */
+    height: fit-content; /* Ghi đè 'height: 100%' */
+    width: 250px;        /* Đặt cứng chiều rộng */
+    
+    /* --- 2. Giữ lại các thuộc tính layout flex --- */
+    flex-basis: 250px;
+    flex-shrink: 0;
+    
+    /* --- 3. Giữ lại style nền/padding --- */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* 3. Định dạng Main (Cột sản phẩm) */
+.shop-main {
+    flex-grow: 1; /* Cho cột main chiếm hết phần không gian còn lại */
+}
+
+/* =================================
+   CSS CHO SIDEBAR FORM
+   (Khớp với HTML của shop.php)
+   ================================= */
+
+.filter-group h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+.filter-group h4 {
+    font-size: 1.1rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+}
+.filter-group ul { list-style: none; padding: 0; margin: 0; }
+.filter-group li { margin-bottom: 8px; }
+
+/* Style cho radio và checkbox */
+.filter-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.filter-group input {
+    margin-right: 8px;
+}
+.sidebar-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+/* Nút Lọc */
+.filter-submit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.filter-submit-btn:hover {
+    background-color: #0056b3;
+}
+/* Link Xóa lọc */
+.clear-filter-link {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+}
+.clear-filter-link:hover { text-decoration: underline; }
+
+/* =================================
+   CSS PHẦN MAIN (SẢN PHẨM, PHÂN TRANG)
+   ================================= */
+   
+.shop-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.pagination a.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+.pagination a:hover {
+    background-color: #f0f0f0;
+}
+
+/* =================================
+   CSS CHO THẺ SẢN PHẨM (Product Card)
+   ================================= */
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s;
+    position: relative;
+}
+.product-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.product-card .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+.product-card .card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.product-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 32px;
+}
+.product-card .card-description {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 15px;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+.product-card .card-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d00000;
+    margin-bottom: 15px;
+}
+.product-card .card-actions {
+    display: flex;
+    gap: 10px;
+}
+.product-card .quantity-input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+.product-card .add-to-cart-btn {
+    flex: 1;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.product-card .add-to-cart-btn:hover {
+    background-color: #e0a800;
+}
+
+/* =================================
+   CSS CHO STRETCHED LINK (Link co giãn)
+   ================================= */
+
+/* 1. Tạo lớp phủ vô hình cho link */
+.product-card .stretched-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Nằm bên dưới form */
+}
+
+/* 2. Đảm bảo form (nút THÊM) nổi lên trên lớp link */
+.product-card .card-actions {
+    position: relative; /* Bắt buộc phải có position */
+    z-index: 2; /* Nổi lên trên z-index: 1 */
+}

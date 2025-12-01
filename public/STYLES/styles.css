@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column; /* Sắp xếp các phần tử (header, content, footer) theo chiều dọc */
+    min-height: 100vh;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #195189, #57b9f2);
+  padding: 10px 30px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Style cho icon giỏ hàng trong nav */
+.cart-icon-nav {
+  position: relative;
+}
+
+.cart-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff4444;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Style cho nút đăng xuất */
+#btn-logout {
+  color: white;
+  text-decoration: none;
+  background: rgba(239, 68, 68, 0.8);
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+#btn-logout:hover {
+  background: rgba(220, 38, 38, 0.9);
+  text-decoration: underline;
+}
+
+
+/* nhóm logo + chữ */
+.logo-container {
+  display: flex;
+  align-items: center;     /* căn giữa theo chiều dọc */
+  gap: 15px;               /* khoảng cách giữa ảnh và chữ */
+}
+
+/* ảnh logo */
+.logo {
+  width: 95px;             /* chỉnh kích thước ảnh */
+  height: 95px;
+  border-radius: 50%;      /* làm tròn ảnh */
+  object-fit: cover;       /* giữ tỉ lệ ảnh */
+}
+
+/* chữ tiêu đề */
+.logo-container h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase; /* Viết hoa toàn bộ */
+  text-shadow: 
+    0 0 10px cyan,
+    0 0 20px cyan,
+    0 0 40px cyan;
+}
+
+.menu{
+  background: none;     /* bỏ nền */
+  border: none;         /* bỏ khung viền */
+  color: white;         /* đổi màu chữ/icon */
+  font-size: 20px;
+  cursor: pointer;      /* hiện con trỏ tay khi hover */
+}
+
+.menu:hover {
+  opacity: 0.8;
+} 
+
+nav {
+  background: none;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* underline riêng bên dưới background */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;            /* nằm dưới nền 1 chút */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;                /* ban đầu ẩn */
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* hover -> underline chạy ra */
+nav ul li a:hover::after {
+  width: 80%;              /* chạy ra giữa đẹp hơn full 100% */
+}
+
+
+/* khung menu hiện ra */
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #a8cef4;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1500; /* cao hơn header */
+  padding: 60px 20px 20px; /* chừa chỗ cho nút đóng */
+}
+
+aside.active {
+  transform: translateX(0);
+}
+
+
+    /* ----- NÚT ĐÓNG (×) ----- */
+#closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #334155;
+  cursor: pointer;
+  z-index: 1600; /* đảm bảo nằm trên cùng */
+}
+
+    /* ----- OVERLAY ----- */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1400;
+}
+
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+#sidebar {
+  width: 18%;
+  padding: 10px,15px;
+  background-color: #8cb8f3;
+}
+ #sidebar  ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+#sidebar  li {
+  margin-bottom: 10px;
+  margin-bottom: 5px;
+}
+
+#sidebar a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px; 
+  display: block; 
+  padding: 12px 15px; 
+  border-radius: 10px; 
+  transition: all 0.2s ease-in-out;
+}
+
+/* 4. HIỆU ỨNG KHI DI CHUỘT (Animation đẹp) */
+#sidebar a:hover {
+  color: #0f172a; /* Chữ đậm hơn (giữ nguyên) */
+  
+  /* Thêm một lớp nền mờ khi di chuột */
+  background-color: #e2e8f0; 
+  
+  /* Hiệu ứng trượt nhẹ sang phải */
+  transform: translateX(5px); 
+}
+
+
+/* ----- SUBMENU ----- */
+/* Cho sidebar có layout dọc và user-section nằm cuối */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* phần menu trên, user dưới */
+  height: 100vh; /* chiếm toàn bộ chiều cao màn hình */
+  background:linear-gradient(15deg, #ffffff, #1a5ab4);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CSS CHO USER SECTION (CẬP NHẬT)
+   ========================================= */
+
+.user-section {
+    display: flex;
+    align-items: center; /* Căn giữa 2 cột theo chiều dọc */
+    gap: 15px;           /* Khoảng cách giữa Cột trái và Cột phải */
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2); /* Nền mờ nhẹ */
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* --- CỘT TRÁI: Chứa Ảnh & Nút Sửa --- */
+.user-left {
+    display: flex;
+    flex-direction: column; /* Xếp dọc: Ảnh trên, Nút dưới */
+    align-items: center;    /* Căn giữa nút so với ảnh */
+    gap: 8px;               /* Khoảng cách giữa ảnh và nút */
+}
+
+.user-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    margin: 0; /* Xóa margin cũ nếu có */
+}
+
+/* Nút Sửa chữa nhỏ gọn */
+.mini-edit-btn {
+    font-size: 18px !important;
+    padding: 4px 10px !important;
+    background-color: #f39c12; /* Màu vàng cam */
+    color: white !important;
+    border-radius: 15px;       /* Bo tròn nhiều cho đẹp */
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;       /* Không xuống dòng chữ */
+    transition: background 0.2s;
+}
+
+.mini-edit-btn:hover {
+    background-color: #d35400;
+}
+
+
+/* --- CỘT PHẢI: Chứa Chữ & Nút Logout --- */
+.user-right {
+    display: flex;
+    flex-direction: column; /* Xếp dọc */
+    gap: 5px;
+    flex: 1; /* Chiếm phần còn lại */
+}
+
+.user-greeting {
+    font-size: 18px;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+#btn-logout {
+    background: #ef4444;
+    color: white !important;
+    padding: 5px 10px !important;
+    border-radius: 5px;
+    font-size: 13px !important;
+    text-align: center;
+    width: fit-content; /* Nút chỉ rộng bằng chữ bên trong */
+    text-decoration: none;
+}
+
+#btn-logout:hover {
+    background: #dc2626;
+}
+
+/* Style cho Login/Register khi chưa đăng nhập */
+#btn-login, #btn-register {
+    display: block;
+    margin-bottom: 5px;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+}
+
+#btn-register:hover,
+#btn-login:hover {
+  color:#334155;
+  text-decoration: underline;
+}
+
+
+

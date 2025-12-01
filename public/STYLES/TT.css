@@ -1,0 +1,87 @@
+*{ /* áp dụng cho mọi phần tử. */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    font-family: Arial, sans-serif;
+    background-size: cover; /*giữ tỉ lệ và phủ đầy khung nhìn.*/
+
+}
+.form-box{
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    width: 350px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.input-group{
+    margin-bottom: 15px;
+    text-align: left;
+}
+.input-group input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.btn{
+    width: 100%;
+    padding: 10px;
+    background-color: #4facfe;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: #1d0fb6;
+}
+.btn.btn-home {
+    background-color: #ff6f61 !important; /* Màu cam đỏ */
+    margin-top: 10px; /* Cách nút đăng nhập một chút cho thoáng */
+}
+
+/* 2. Đổi màu khi di chuột vào (Hover) */
+.btn.btn-home:hover {
+    background-color: #e65b50 !important; /* Màu cam đậm hơn */
+}
+.register-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+.register-link a {
+  color: #4facfe;
+  text-decoration: none;
+}
+.register-link a:hover { /* khi di chuột qua liên kết */
+  text-decoration: underline;
+}
+.password-strength {
+    margin-top: 5px;
+    font-size: 0.85em;
+}
+.strength-weak { color: #e74c3c; }
+.strength-medium { color: #f39c12; }
+.strength-strong { color: #2ecc71; }
+            
+/* CSS cho thông báo lỗi JS và PHP */
+.error-message {
+    color: #e74c3c; /* Màu đỏ */
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 10px;
+    min-height: 1.2em; /* Giữ khoảng trống */
+}

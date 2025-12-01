@@ -1,0 +1,61 @@
+/* ===== KHUNG SUBMENU TRƯỢT NGANG ===== */
+#sidebar .dropdown {
+  position: relative;
+}
+
+/* Khung submenu tổng */
+#sidebar .submenu-box  {
+  position: absolute;
+  top: 0;
+  left: 100%; /* nằm bên phải menu cha */
+  background-color: #f8faff;
+  border: 2px solid #497fc1;
+  border-radius: 10px;
+  padding: 10px 0;
+  width: 200px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+
+  /* Ẩn ban đầu */
+  opacity: 0;
+  transform: translateX(15px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 3000;
+}
+
+/* --- BỔ SUNG: BIẾN MŨI TÊN THÀNH NÚT --- */
+
+/* 1. Chừa khoảng trống bên phải cho nút */
+#sidebar .dropdown > a {
+  position: relative; /* Biến thẻ <a> thành khung chứa */
+  padding-right: 50px; 
+}
+
+/* 2. Tạo nút mũi tên (bằng pseudo-element ::after) */
+#sidebar .dropdown > a::after {
+  /* Đây là nội dung mũi tên (dùng ký tự › đẹp hơn >) */
+  content: '›'; 
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #eff0f1; /* Màu mũi tên (giống màu header) */
+
+  /* --- Phần tạo HỘP --- */
+  position: absolute; /* Đặt nó lơ lửng bên trong <a> */
+  right: 15px;      /* Cách lề phải 15px */
+  top: 50%;         /* Căn giữa theo chiều dọc (bước 1) */
+  transform: translateY(-50%); /* Căn giữa theo chiều dọc (bước 2) */
+  
+  border: 1px solid #ebf1f7; /* Viền hộp */
+  width: 24px;
+  height: 24px;
+  border-radius: 6px; /* Bo góc */
+  
+  /* Căn chữ mũi tên vào giữa hộp */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Hiệu ứng chuyển động */
+  transition: all 0.2s ease;
+}

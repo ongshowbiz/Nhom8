@@ -1,0 +1,93 @@
+/* ========================
+   CSS CHO FOOTER
+   ======================== */
+.footer {
+    background-color: #2c3e50; /* Một màu nền tối */
+    color: #ecf0f1;           /* Màu chữ sáng, dễ đọc */
+    padding: 50px 0 0 0;       /* Tăng khoảng đệm bên trên */
+    margin-top: auto;          /* Khoảng cách với nội dung bên trên */
+}
+
+/* Định dạng chung cho container bên trong footer */
+.footer .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Sử dụng Flexbox để tạo layout cột */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các cột xuống hàng trên màn hình nhỏ */
+    justify-content: space-between; /* Phân bố đều các cột */
+    gap: 30px; /* Khoảng cách giữa các cột */
+    margin-bottom: 30px;
+}
+
+/* Định dạng cho mỗi cột */
+.footer-column {
+    flex: 1; /* Các cột tự chia đều không gian */
+    min-width: 250px; /* Chiều rộng tối thiểu trước khi xuống hàng */
+}
+
+.footer-column h3 {
+    color: #ffffff; /* Màu tiêu đề nổi bật */
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-bottom: 2px solid #3498db; /* Đường gạch chân trang trí */
+    padding-bottom: 10px;
+    display: inline-block; /* Để đường gạch chân vừa với chữ */
+}
+
+.footer-column p {
+    line-height: 1.7;
+    color: #bdc3c7; /* Màu chữ mô tả (hơi nhạt hơn) */
+}
+
+/* Định dạng cho cột liên kết nhanh */
+.footer-column.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-column.footer-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-column.footer-links a:hover {
+    color: #3498db; /* Đổi màu khi di chuột */
+    padding-left: 8px; /* Hiệu ứng di chuyển nhẹ khi di chuột */
+}
+
+/* Định dạng cho cột liên hệ */
+.footer-column.footer-contact p {
+    margin-bottom: 10px;
+}
+
+/* (Tùy chọn) Nếu bạn dùng Font Awesome cho icon */
+.footer-column.footer-contact .fa {
+    margin-right: 10px;
+    color: #3498db;
+    width: 20px; /* Giúp các icon thẳng hàng */
+}
+
+/* Phần bản quyền ở cuối */
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #34495e; /* Đường kẻ phân cách */
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #95a5a6;
+    font-size: 14px;
+}

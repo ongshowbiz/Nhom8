@@ -1,0 +1,33 @@
+.admin-container {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.content-area {
+    flex-grow: 1;
+}
+.stored-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden; 
+}
+.stored-table th, .stored-table td { 
+    border: 1px solid #ddd; 
+    padding: 12px; 
+    text-align: left; 
+}
+.stored-table th { 
+    background-color: #007bff; 
+    color: white; 
+}
+.stored-table tr:nth-child(even) { 
+    background-color: #f9f9f9; 
+}
+.stored-table tr:hover {
+    background-color: #f1f1f1; 
+}

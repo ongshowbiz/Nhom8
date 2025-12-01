@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* Sắp xếp các phần tử (header, content, footer) theo chiều dọc */
+  min-height: 100vh;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a4c89;
+  padding: 10px 30px;
+  color: white;
+}
+
+/* nhóm logo + chữ */
+.logo-container {
+  display: flex;
+  align-items: center;     /* căn giữa theo chiều dọc */
+  gap: 15px;               /* khoảng cách giữa ảnh và chữ */
+}
+
+/* ảnh logo */
+.logo {
+  width: 95px;             /* chỉnh kích thước ảnh */
+  height: 95px;
+  border-radius: 50%;      /* làm tròn ảnh */
+  object-fit: cover;       /* giữ tỉ lệ ảnh */
+}
+
+/* chữ tiêu đề */
+.logo-container h1 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: bold;
+  text-transform: uppercase; /* Viết hoa toàn bộ */
+  text-shadow: 
+    0 0 10px cyan,
+    0 0 20px cyan,
+    0 0 40px cyan;
+}
+
+
+nav {
+  background: none;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* underline riêng bên dưới background */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;            /* nằm dưới nền 1 chút */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;                /* ban đầu ẩn */
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* hover -> underline chạy ra */
+nav ul li a:hover::after {
+  width: 80%;              /* chạy ra giữa đẹp hơn full 100% */
+}
+
+
+/* 1. Wrapper cho phần thân (gồm menu và nội dung) */
+.main-body-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 20px auto;
+  padding: 0 20px; /* Đệm lề trái/phải cho toàn bộ thân trang */
+  gap: 20px;         /* Khoảng trống giữa menu và nội dung */
+  box-sizing: border-box;
+}
+
+/* 3. Khu vực nội dung chính (cột phải) */
+.content-area {
+  flex-grow: 1;     /* Cho phép nội dung chiếm hết không gian còn lại */
+  min-width: 0;
+  overflow: hidden;   /* Tránh carousel hoặc nội dung lớn làm vỡ layout */
+}
+
+/* 2. Điều chỉnh lại #sidebar (menu) */
+#sidebar {
+  /* Chiều rộng cố định cho menu */
+  width: 280px;     
+  
+  /* Không cho menu bị co lại khi màn hình hẹp */
+  flex-shrink: 0;   
+  
+  /* Style cho menu */
+  background-color: #6fa8f4;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+
+  /* Quan trọng: Dùng flex-column để đẩy user-section xuống dưới */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 600px;
+}
+
+#sidebar  ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* 2. Điều chỉnh khoảng cách giữa các mục */
+#sidebar  li {
+  margin-bottom: 10px;
+  /* Chúng ta sẽ dùng margin nhỏ hơn một chút */
+  margin-bottom: 5px;
+}
+
+/* 3. BIẾN LINK THÀNH NÚT (Phần quan trọng nhất) */
+#sidebar a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px; /* (Giữ nguyên từ code cũ của bạn) */
+
+  /* --- PHẦN THÊM VÀO CHO ĐẸP HƠN --- */
+
+  /* Biến link thành 1 khối để chiếm hết chiều ngang */
+  display: block; 
+  
+  /* * Đây chính là PADDING! 
+   * Tạo 12px đệm trên/dưới và 15px đệm trái/phải 
+   * để làm "nút" to ra, đầy đặn hơn.
+   */
+  padding: 12px 15px; 
+  
+  /* Bo góc cho mềm mại */
+  border-radius: 10px; 
+  
+  /* * Đây là ANIMATION! 
+   * Báo trình duyệt rằng mọi thay đổi (all) 
+   * sẽ diễn ra mượt mà trong 0.2 giây.
+   */
+  transition: all 0.2s ease-in-out;
+}
+
+/* 4. HIỆU ỨNG KHI DI CHUỘT (Animation đẹp) */
+#sidebar a:hover {
+  color: #0f172a; /* Chữ đậm hơn (giữ nguyên) */
+  
+  /* Thêm một lớp nền mờ khi di chuột */
+  background-color: #e2e8f0; 
+  
+  /* Hiệu ứng trượt nhẹ sang phải */
+  transform: translateX(5px); 
+}
+
+/* Căn chỉnh icon và chữ đăng nhập */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
+
+.user-icon {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+/* Style cho nút đăng nhập/đăng ký */
+.user-actions a {
+  display: inline-block;
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  margin-right: 10px;
+  background: #e4e7eb;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.user-actions a:hover {
+  background: #d0d4d9;
+}
+
+#btn-login {
+  color: white;
+  text-decoration: none;
+}
+
+#btn-register {
+  color: white; 
+  text-decoration: none; /* Bỏ gạch chân mặc định */
+}
+#btn-register:hover,
+#btn-login:hover {
+  color:#334155;
+  text-decoration: underline;
+}
+
+/* 5. Đảm bảo footer luôn ở dưới cùng */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
