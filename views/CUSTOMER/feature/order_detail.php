@@ -104,7 +104,7 @@ $status_colors = [
                         <div class="product-item">
                             <img src="<?= $ASSETS_URL ?>anhsp/<?= basename($item['image_url']) ?>" 
                             alt="<?= htmlspecialchars($item['product_name']) ?>"
-                            onerror="this.src='<?= $ASSETS_URL ?>images/no-image.png'">
+                            onerror="this.src='<?= $ASSETS_URL ?>anhsp/placeholder.jpg'">
                             <div class="product-info">
                                 <div class="product-name"><?= htmlspecialchars($item['product_name']) ?></div>
                                 <div class="product-price">
