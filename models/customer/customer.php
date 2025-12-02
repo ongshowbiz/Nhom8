@@ -172,15 +172,15 @@ class dbcustomer{
     }
     return 0;
 }
-    public function getProductsByType($type_id, $last_id = 0, $limit = 10) {
+    public function getProductsByType($type_id, $last_id = 0, $limit = 10, $exclude_id) {
         $type_id = (int)$type_id;
 
-        // ---- sửa ở đây ----
         $where_last_id = $last_id > 0 ? " AND product_id < $last_id" : "";
-        $sql = "SELECT * FROM Products WHERE product_type_id = $type_id $where_last_id
+        $where_exclude = $exclude_id > 0 ? " AND product_id != $exclude_id" : "";
+
+        $sql = "SELECT * FROM Products WHERE product_type_id = $type_id $where_last_id $where_exclude
                 ORDER BY product_id DESC
                 LIMIT $limit";
-        // ---- end sửa ----
 
         $kq = $this->db->query($sql);
 

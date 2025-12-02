@@ -24,7 +24,7 @@ class CustomerController {
 
         if (!empty($product_types)) {
             foreach( $product_types as $type ) {
-                $products = $this->model->getProductsByType($type['product_type_id'], 0 , 4);
+                $products = $this->model->getProductsByType($type['product_type_id'], 0 , 4, 0);
                 $home_product_groups[] = [
                         'type_id' => $type['product_type_id'],
                         'type_name' => $type['type_name'],
@@ -143,7 +143,7 @@ class CustomerController {
             echo "<h1>404 - Không tìm thấy sản phẩm</h1>";
             exit;
         }
-        $related_products = $this->model->getProductsByType($product['product_type_id'], 0, 4); 
+        $related_products = $this->model->getProductsByType($product['product_type_id'], 0, 4, $product_id); 
         include __DIR__ . '/../../views/CUSTOMER/feature/Product_detail.php';
     }
 
