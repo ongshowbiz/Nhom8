@@ -98,7 +98,7 @@ $PUBLIC_URL = '/scm/public/';
                     </div>
                     <div class="form-group">
                         <label for="image_url">Hình ảnh:</label> (vd: image.jpg or image.png)
-                        <input type= "text" id="image_url" name="image_url">
+                        <input type= "file" id="image_url" name="image_url">
                     </div>
                     <button type="submit" name="add_product" class="btn btn-primary">Thêm Sản Phẩm</button>
                 </form>
