@@ -458,13 +458,13 @@ public function check_out(){
 
         $order_id = (int)($_GET['id'] ?? 0);
         if ($order_id <= 0) {
-            header("Location: index.php?page=listOrders");
+            header("Location: index.php?page=order_list");
             exit;
         }
 
         $order = $this->model->getOrderById($order_id);
         if (!$order || $order['customer_id'] != $_SESSION['customer_id']) {
-            header("Location: index.php?page=listOrders");
+            header("Location: index.php?page=order_list");
             exit;
         }
 
