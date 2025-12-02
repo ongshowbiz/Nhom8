@@ -20,7 +20,7 @@ $ASSETS_URL = '/scm/public/';
         </div>
     <?php endif; ?>
 
-    <form action="" method="POST">
+    <form action="index.php?page=profile_edit" method="POST">
         <div class="form-group">
             <label class="form-label">Tên đăng nhập (Không thể sửa):</label>
             <input type="text" class="form-input input-disabled" 
@@ -71,7 +71,7 @@ $ASSETS_URL = '/scm/public/';
 
     <div id="password-section">
         <h3 class="pass-title">🔑 Thay đổi mật khẩu</h3>
-        <form action="" method="POST">
+        <form action="index.php?page=profile_edit" method="POST">
             <div class="form-group">
                 <label class="form-label">Mật khẩu cũ:</label>
                 <input type="password" name="old_password" class="form-input" 
