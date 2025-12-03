@@ -94,7 +94,6 @@ $VIEWS_URL = '/scm/views/CUSTOMER/';
 
                         <?php
                             // 1. Xác định đường dẫn ảnh
-                            // Nếu có tên ảnh trong DB, nối thêm đường dẫn thư mục images/ vào trước
                             if (!empty($related['image_url'])) {
                                 $img_src = $ASSETS_URL . 'anhsp/' .$related['image_url'];
                             } else {

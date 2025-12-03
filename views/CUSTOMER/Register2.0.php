@@ -58,6 +58,7 @@ $ASSETS_URL = '/scm/public/';
 
                     <button type="submit" name="submit_register" class="btn">Register</button>
                     <p class="login-link">Already have an account? <a href="Login2.0.php">Login here</a></p>
+                </form>
             </div>
         </div>
          <script>
