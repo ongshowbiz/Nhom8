@@ -78,9 +78,8 @@ $VIEWS_URL = '/scm/views/CUSTOMER/';
                 <p><?= htmlspecialchars($product['description'] ?? 'Sản phẩm đang được cập nhật mô tả chi tiết.') ?></p>
                 
                 <ul>
-                    <li><strong>Brand:</strong> <?= htmlspecialchars($product['brand'] ?? 'N/A') ?></li>
-                    <li><strong>Category:</strong> <?= htmlspecialchars($product['type_name'] ?? 'N/A') ?></li>
-                    <li><strong>Description:</strong> <?= htmlspecialchars($product['description'] ?? 'N/A') ?></li>
+                    <li><strong>Thương Hiệu:</strong> <?= htmlspecialchars($product['brand'] ?? 'N/A') ?></li>
+                    <li><strong>Mô tả chi tiết:</strong> <?= htmlspecialchars($product['description'] ?? 'N/A') ?></li>
                 </ul>
             </div>
             </div>

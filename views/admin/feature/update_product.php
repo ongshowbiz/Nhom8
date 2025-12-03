@@ -82,8 +82,8 @@ $PUBLIC_URL = '/scm/public/';
                     </div>
 
                     <div class="form-group">
-                        <label for="image_url">Hình ảnh:</label> (vd: image.jpg or image.png)
-                        <input type= "text" id="image_url" name="image_url" value="<?= htmlspecialchars($product_to_edit['image_url']) ?>">
+                        <label for="image_url">Hình ảnh:</label> (vd: image.jpg or image.png) <br>
+                        <input type= "file" id="image_url" name="image_url" value="<?= htmlspecialchars($product_to_edit['image_url']) ?>">
                     </div>
                         <button type="submit" class="btn btn-primary">Cập nhật</button>
                         <a href="<?= $PUBLIC_URL ?>index.php?page=product&p=<?= isset($current_page) ? $current_page : 1 ?>
